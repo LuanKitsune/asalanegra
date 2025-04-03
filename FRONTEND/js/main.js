@@ -106,11 +106,18 @@ document.addEventListener('DOMContentLoaded', function() {
     
     // Efeitos de terror aleatórios no buraco negro
     const terrorEffects = [
-        { type: 'eyes', duration: 2000, sound: whisperSound },
-        { type: 'face', duration: 1500, sound: whisperSound },
-        { type: 'hand', duration: 2500, sound: whisperSound }
+        { type: 'facehorror2', duration: 1500, sound: whisperSound },
+        { type: 'facehorror3', duration: 2000, sound: whisperSound },
+        { type: 'facehorror4', duration: 1500, sound: whisperSound },
+        { type: 'facehorror5', duration: 2000, sound: whisperSound },
+        { type: 'handhorror', duration: 1500, sound: whisperSound },
+        { type: 'horrofaceface', duration: 2000, sound: whisperSound },
+        { type: 'horrofacewhite', duration: 1500, sound: whisperSound },
+        { type: 'horror', duration: 2000, sound: whisperSound },
+        { type: 'horrorclawn', duration: 1500, sound: whisperSound },
+        { type: 'horrorface', duration: 2000, sound: whisperSound },
+        { type: 'horrorfacesinister', duration: 1500, sound: whisperSound }
     ];
-    
     function triggerRandomTerror() {
         // 5% de chance de ativar um efeito a cada 30 segundos
         if (Math.random() < 0.05) {
@@ -119,7 +126,7 @@ document.addEventListener('DOMContentLoaded', function() {
             // Criar elemento de efeito
             const terrorElement = document.createElement('div');
             terrorElement.className = 'abyss-face';
-            terrorElement.style.backgroundImage = `url('images/${effect.type}.png')`;
+            terrorElement.style.backgroundImage = `url('../images/apparitions/${effect.type}.png')`;
             terrorElement.style.opacity = '0';
             
             blackHole.appendChild(terrorElement);
