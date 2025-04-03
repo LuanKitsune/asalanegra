@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>A Sala Negra - Acesso</title>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@400;700&family=MedievalSharp&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../style/geral.css">
+    <link rel="stylesheet" href="../style/loginCadastro.css">
+    <script src="https://cdn.jsdelivr.net/npm/howler@2.2.3/dist/howler.min.js"></script>
+</head>
+<body>
+    <div id="particles-js"></div>
+    <div class="container login-container">
+        <div class="access-panel">
+            <div class="panel-header">
+                <h1>A SALA NEGRA</h1>
+                <div class="abyss-text">
+                    <span>Credenciais exigidas para acesso</span>
+                </div>
+            </div>
+
+            <div class="tabs">
+                <button class="tab-button active" id="loginTab">LOGIN</button>
+                <button class="tab-button" id="registerTab">CADASTRO</button>
+            </div>
+
+            <div class="tab-content active" id="loginForm">
+                <form id="loginFormElement">
+                    <div class="form-group">
+                        <label for="loginUsername">Código de Agente</label>
+                        <input type="text" id="loginUsername" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="loginPassword">Senha de Segurança</label>
+                        <input type="password" id="loginPassword" required>
+                    </div>
+                    <button type="submit" class="access-button">ACESSAR ARQUIVOS</button>
+                </form>
+            </div>
+
+            <div class="tab-content" id="registerForm">
+                <form id="registerFormElement">
+                    <div class="form-group">
+                        <label for="registerCode">Código de Iniciação</label>
+                        <input type="text" id="registerCode" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="registerUsername">Escolha seu Código</label>
+                        <input type="text" id="registerUsername" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="registerPassword">Crie uma Senha</label>
+                        <input type="password" id="registerPassword" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="registerConfirm">Confirme a Senha</label>
+                        <input type="password" id="registerConfirm" required>
+                    </div>
+                    <button type="submit" class="access-button">INICIAR TREINAMENTO</button>
+                </form>
+            </div>
+
+            <div class="security-notice">
+                <p>⚠️ Todos os acessos são monitorados pelo IVP. Tentativas não autorizadas serão rastreadas.</p>
+            </div>
+        </div>
+    </div>
+
+    <audio id="windSound" loop>
+        <source src="sounds/wind.mp3" type="audio/mpeg">
+    </audio>
+    <audio id="whisperSound">
+        <source src="sounds/whisper.mp3" type="audio/mpeg">
+    </audio>
+
+    <script src="../js/particles.js"></script>
+    <script src="../js/loginCadastro.js"></script>
+</body>
+</html>

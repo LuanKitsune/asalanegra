@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>A Sala Negra</title>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@400;700&family=MedievalSharp&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../style/geral.css">
+</head>
+<body>
+    <div id="particles-js"></div>
+    <div class="container">
+        <div class="black-hole" id="blackHole">
+            <h1>A SALA NEGRA</h1>
+            <div class="abyss-text" id="abyssText">
+                <span class="typing"></span>
+            </div>
+        </div>
+        
+        <div class="content">
+            <div class="project-description">
+                <h2>O QUE É A SALA NEGRA?</h2>
+                <p>Uma experiência literária gamificada, onde você será um estudante do <span class="highlight">Instituto de Vigilância Paranormal (IVP)</span>, em formação para trabalhar nos braços de pesquisa e investigação de fenômenos sobrenaturais.</p>
+                
+                <p>Como recruta, você terá acesso a arquivos confidenciais classificados por níveis. Seu progresso será determinado pela sua capacidade de analisar casos, classificar criaturas e resolver enigmas. Mas cuidado - cada erro terá consequências.</p>
+                
+                <div class="features">
+                    <div class="feature">
+                        <h3>📂 DOSSIÊS CLASSIFICADOS</h3>
+                        <p>Documentos sobre criaturas, casos paranormais e experimentos proibidos.</p>
+                    </div>
+                    <div class="feature">
+                        <h3>👥 NPCs INTERATIVOS</h3>
+                        <p>Personagens que irão guiá-lo, testá-lo e, às vezes, assombrá-lo.</p>
+                    </div>
+                    <div class="feature">
+                        <h3>🎚️ SISTEMA DE REPUTAÇÃO</h3>
+                        <p>Suas decisões afetam seu status na organização.</p>
+                    </div>
+                </div>
+                
+                <button id="enterBtn">ENTRAR NA SALA NEGRA</button>
+            </div>
+        </div>
+    </div>
+
+    <audio id="windSound" loop>
+        <source src="sounds/wind.mp3" type="audio/mpeg">
+    </audio>
+    <audio id="whisperSound">
+        <source src="sounds/whisper.mp3" type="audio/mpeg">
+    </audio>
+
+    <script src="../js/particles.js"></script>
+    <script src="../js/main.js"></script>
+    <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/howler@2.2.3/dist/howler.min.js"></script>
+</body>
+</html>
