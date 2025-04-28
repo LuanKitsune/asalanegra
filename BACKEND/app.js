@@ -6,8 +6,8 @@ require('dotenv').config();
 
 const app = express();
 
-const allowedOrigins = ['http://localhost:3000', 'http://localhost:8081'];
-
+const allowedOrigins = ['http://localhost:3000', 'http://localhost:8081','http://localhost:8080'];
+// const allowedOrigins = ['null'];
 app.use(cors({
   origin: function (origin, callback) {
     if (!origin) return callback(null, true);
@@ -19,6 +19,7 @@ app.use(cors({
   },
   optionsSuccessStatus: 200
 }));
+
 
 app.use(express.json());
 

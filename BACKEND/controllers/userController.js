@@ -1,20 +1,25 @@
 const User = require('../models/User');
 
-exports.updateProfile = async (req, res) => {
+exports.getProfile = async (req, res) => {
   try {
-    const { id } = req.params;
-    const updatedUser = await User.findByIdAndUpdate(id, req.body, { new: true });
-    res.json(updatedUser);
+    const user = await User.findById(req.userId).select('-password'); // Exclui a senha
+    if (!user) {
+      return res.status(404).json({ message: "Usuário não encontrado" });
+    }
+    res.json(user);
   } catch (error) {
-    res.status(400).json({ message: error.message });
+    res.status(500).json({ message: error.message });
   }
 };
 
-exports.getProfile = async (req, res) => {
+exports.updateProfile = async (req, res) => {
   try {
-    const { id } = req.params;
-    const user = await User.findById(id);
-    res.json(user);
+    const updatedUser = await User.findByIdAndUpdate(
+      req.userId, 
+      req.body, 
+      { new: true, select: '-password' }
+    );
+    res.json(updatedUser);
   } catch (error) {
     res.status(400).json({ message: error.message });
   }

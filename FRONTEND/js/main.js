@@ -1,3 +1,29 @@
+    document.addEventListener('DOMContentLoaded', function() {
+
+        MusicManager.init();
+        const modal = document.getElementById('warningModal');
+        modal.style.display = 'block';
+        
+        // Desativar scroll do body quando a modal estiver aberta
+        document.body.style.overflow = 'hidden';
+        
+        // Fechar a modal quando clicar no botão ACEITAR
+        const acceptBtn = document.getElementById('acceptBtn');
+        acceptBtn.addEventListener('click', function() {
+            modal.style.display = 'none';
+            document.body.style.overflow = 'auto';
+            
+            MusicManager.play();
+            
+            const whisperSound = document.getElementById('whisperSound');
+            whisperSound.play();
+        });
+        
+        // Opcional: tocar um som de vento quando a modal abrir
+        const windSound = document.getElementById('windSound');
+        windSound.play();
+    });
+    
 document.addEventListener('DOMContentLoaded', function() {
     const blackHole = document.getElementById('blackHole');
     const abyssText = document.getElementById('abyssText');
@@ -19,6 +45,7 @@ document.addEventListener('DOMContentLoaded', function() {
     const whisperSound = document.getElementById('whisperSound');
     windSound.volume = 0.3;
     windSound.play();
+
     
     // Configurar partículas
     particlesJS('particles-js', {

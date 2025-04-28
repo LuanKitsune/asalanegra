@@ -16,6 +16,7 @@ echo Instalando dependências de desenvolvimento...
 npm install nodemon@^3.1.3 --save-dev
 npm install swagger-jsdoc@^6.2.8 --save-dev
 npm install swagger-ui-express@^5.0.1 --save-dev
+npm install migrate-mongo --save-dev
 
 echo Todas as dependências foram instaladas com sucesso!
 pause

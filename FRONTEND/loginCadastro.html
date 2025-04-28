@@ -5,8 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>A Sala Negra - Acesso</title>
     <link href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@400;700&family=MedievalSharp&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="../style/geral.css">
-    <link rel="stylesheet" href="../style/loginCadastro.css">
+    <link rel="stylesheet" href="style/geral.css">
+    <link rel="stylesheet" href="style/loginCadastro.css">
     <script src="https://cdn.jsdelivr.net/npm/howler@2.2.3/dist/howler.min.js"></script>
 </head>
 <body>
@@ -28,7 +28,7 @@
             <div class="tab-content active" id="loginForm">
                 <form id="loginFormElement">
                     <div class="form-group">
-                        <label for="loginUsername">Código de Agente</label>
+                        <label for="loginUsername">Nome de Agente</label>
                         <input type="text" id="loginUsername" required>
                     </div>
                     <div class="form-group">
@@ -42,11 +42,15 @@
             <div class="tab-content" id="registerForm">
                 <form id="registerFormElement">
                     <div class="form-group">
-                        <label for="registerCode">Código de Iniciação</label>
-                        <input type="text" id="registerCode" required>
+                        <label for="email">Email</label>
+                        <input type="text" id="email" required>
                     </div>
                     <div class="form-group">
-                        <label for="registerUsername">Escolha seu Código</label>
+                        <label for="registerName">Nome Completo</label>
+                        <input type="text" id="registerName" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="registerUsername">Escolha seu Nome de Agente</label>
                         <input type="text" id="registerUsername" required>
                     </div>
                     <div class="form-group">
@@ -60,6 +64,7 @@
                     <button type="submit" class="access-button">INICIAR TREINAMENTO</button>
                 </form>
             </div>
+            
 
             <div class="security-notice">
                 <p>⚠️ Todos os acessos são monitorados pelo IVP. Tentativas não autorizadas serão rastreadas.</p>
@@ -74,7 +79,7 @@
         <source src="sounds/whisper.mp3" type="audio/mpeg">
     </audio>
 
-    <script src="../js/particles.js"></script>
-    <script src="../js/loginCadastro.js"></script>
+    <script src="js/particles.js"></script>
+    <script src="js/loginCadastro.js"></script>
 </body>
 </html>

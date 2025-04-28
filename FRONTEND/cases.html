@@ -1,0 +1,63 @@
+
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Arquivo das Criaturas</title>
+    <link rel="stylesheet" href="style/workspace.css">
+
+</head>
+<body>
+    <div class="container flicker">
+        <div class="blood-stain" style="top: 20%; left: 10%; transform: rotate(45deg);"></div>
+        <div class="blood-stain" style="bottom: 15%; right: 15%; transform: rotate(-20deg); width: 200px; height: 200px;"></div>
+
+        <header class="header">
+            <h1>ARQUIVO SECRETO DE CRIATURAS</h1>
+            <p>Classificado - Nível 5 de Segurança</p>
+        </header>
+
+        <div class="cabinet-container">
+            <div class="file-cabinet">
+                <div class="drawer">
+                    <div class="drawer-label">ENTIDADES SOMBRIAS</div>
+                    <div class="file" onclick="showDocument('A Sussurradora', 'entity-1')">Dossier #001 - A Sussurradora</div>
+                    <div class="file" onclick="showDocument('O Homem Sem Rosto', 'entity-2')">Dossier #002 - O Homem Sem Rosto</div>
+                    <div class="file" onclick="showDocument('Os Devoradores de Sonhos', 'entity-3')">Dossier #003 - Os Devoradores de Sonhos</div>
+                </div>
+
+                <div class="drawer">
+                    <div class="drawer-label">CRIATURAS DA NOITE</div>
+                    <div class="file" onclick="showDocument('A Coisa do Porão', 'creature-1')">Dossier #004 - A Coisa do Porão</div>
+                    <div class="file" onclick="showDocument('Os Gritos na Floresta', 'creature-2')">Dossier #005 - Os Gritos na Floresta</div>
+                </div>
+
+                <div class="drawer">
+                    <div class="drawer-label">FENÔMENOS INEXPLICÁVEIS</div>
+                    <div class="file" onclick="showDocument('O Evento Blackwood', 'phenomenon-1')">Dossier #006 - O Evento Blackwood</div>
+                    <div class="file" onclick="showDocument('A Estação Fantasma', 'phenomenon-2')">Dossier #007 - A Estação Fantasma</div>
+                    <div class="file" onclick="showDocument('Os Rituais de Hollow', 'phenomenon-3')">Dossier #008 - Os Rituais de Hollow</div>
+                </div>
+            </div>
+
+            <div class="document-viewer" id="documentViewer">
+                <div class="document-header">
+                    <h2 id="docTitle">TÍTULO DO DOCUMENTO</h2>
+                    <div class="classification" id="docClass">CLASSIFICAÇÃO: NÍVEL 5</div>
+                </div>
+
+                <div class="document-content" id="docContent">
+                </div>
+
+                <div class="document-stamp">CONFIDENCIAL</div>
+
+                <button class="back-button" onclick="hideDocument()">VOLTAR AO ARQUIVO</button>
+            </div>
+        </div>
+    </div>
+
+    <script src = "js/workspace.js">
+    </script>
+</body>
+</html>

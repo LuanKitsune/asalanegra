@@ -1,0 +1,207 @@
+:root {
+
+    --color-black: #000;
+    --color-dark-red: #300;
+    --color-red: #a00;
+    --color-bright-red: #d00;
+    --color-light-red: #f00;
+    --color-dark-gray: #111;
+    --color-gray: #333;
+    --color-medium-gray: #aaa;
+    --color-light-gray: #e0e0e0;
+    --color-transparent-dark: rgba(0, 0, 0, 0.7);
+    --color-transparent-red: rgba(20, 0, 0, 0.5);
+    --font-main: 'MedievalSharp', cursive;
+    --font-title: 'Cinzel Decorative', cursive;
+    --box-shadow-red: 0 0 10px var(--color-light-red);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: var(--font-main);
+    background-color: var(--color-black);
+    color: var(--color-light-gray);
+    height: 100vh;
+    overflow: hidden;
+    /* background-image: url('https://images.unsplash.com/photo-1518709268805-4e9042af9f23?q=80&w=1000'); */
+    background-size: cover;
+    background-position: center;
+    position: relative;
+}
+
+body::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.85);
+    z-index: 1;
+}
+
+.container {
+    position: relative;
+    z-index: 2;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    padding: 2rem;
+}
+
+.header {
+    text-align: center;
+    margin-bottom: 2rem;
+    border-bottom: 1px solid var(--color-red);
+    padding-bottom: 1rem;
+}
+
+.header h1 {
+    font-family: var(--font-title);
+    color: var(--color-bright-red);
+    text-shadow: var(--box-shadow-red);
+    letter-spacing: 2px;
+}
+
+.cabinet-container {
+    display: flex;
+    flex: 1;
+    gap: 2rem;
+}
+
+/* Estilo do armário de arquivos */
+.file-cabinet {
+    width: 300px;
+    background-color: var(--color-dark-gray);
+    border: 2px solid var(--color-gray);
+    border-radius: 5px;
+    padding: 1rem;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.8);
+    overflow-y: auto;
+}
+
+.drawer {
+    margin-bottom: 1.5rem;
+}
+
+.drawer-label {
+    background-color: var(--color-black);
+    color: var(--color-bright-red);
+    padding: 0.5rem;
+    font-family: var(--font-title);
+    cursor: pointer;
+    border-left: 3px solid var(--color-red);
+    margin-bottom: 0.5rem;
+    transition: all 0.3s ease;
+}
+
+.drawer-label:hover {
+    background-color: var(--color-gray);
+}
+
+.file {
+    background-color: var(--color-transparent-dark);
+    color: var(--color-medium-gray);
+    padding: 0.75rem;
+    margin: 0.5rem 0;
+    border: 1px solid var(--color-gray);
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-size: 0.9rem;
+}
+
+.file:hover {
+    border-color: var(--color-red);
+    color: var(--color-light-gray);
+    background-color: var(--color-transparent-red);
+}
+
+.document-viewer {
+    flex: 1;
+    background-color: var(--color-transparent-dark);
+    border: 1px solid var(--color-gray);
+    padding: 2rem;
+    overflow-y: auto;
+    position: relative;
+    display: none;
+}
+
+.document-header {
+    border-bottom: 1px solid var(--color-red);
+    padding-bottom: 1rem;
+    margin-bottom: 1.5rem;
+}
+
+.document-header h2 {
+    color: var(--color-bright-red);
+    font-family: var(--font-title);
+    letter-spacing: 1px;
+}
+
+.document-header .classification {
+    color: var(--color-red);
+    font-style: italic;
+    margin-top: 0.5rem;
+}
+
+.document-content {
+    line-height: 1.6;
+    text-align: justify;
+}
+
+.document-content p {
+    margin-bottom: 1rem;
+}
+
+.document-stamp {
+    position: absolute;
+    bottom: 2rem;
+    right: 2rem;
+    color: var(--color-red);
+    font-family: var(--font-title);
+    transform: rotate(-15deg);
+    opacity: 0.7;
+}
+
+.back-button {
+    background-color: var(--color-dark-red);
+    color: var(--color-light-gray);
+    border: 1px solid var(--color-red);
+    padding: 0.5rem 1rem;
+    cursor: pointer;
+    margin-top: 1rem;
+    transition: all 0.3s ease;
+}
+
+.back-button:hover {
+    background-color: var(--color-red);
+}
+
+.flicker {
+    animation: flicker 5s infinite alternate;
+}
+
+@keyframes flicker {
+    0%, 19%, 21%, 23%, 25%, 54%, 56%, 100% {
+        opacity: 1;
+    }
+    20%, 22%, 24%, 55% {
+        opacity: 0.5;
+    }
+}
+
+.blood-stain {
+    position: absolute;
+    width: 150px;
+    height: 150px;
+    /* background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><path fill="%23a00" d="M50 15Q40 30 30 40Q20 50 25 65Q30 80 45 85Q60 90 70 80Q80 70 75 55Q70 40 60 30Q50 20 50 15Z" opacity="0.7"/></svg>'); */
+    background-size: contain;
+    background-repeat: no-repeat;
+    opacity: 0.3;
+    z-index: -1;
+}

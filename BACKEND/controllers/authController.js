@@ -4,7 +4,7 @@ const User = require("../models/User");
 
 exports.register = async (req, res) => {
   try {
-    const { name, email, password } = req.body;
+    const { namecomplete,username, email, password } = req.body;
     const existingUser = await User.findOne({ email });
     if (existingUser) {
       return res.status(400).json({ message: "Erro de cadastro: Email ou senha já existem" });
@@ -12,7 +12,8 @@ exports.register = async (req, res) => {
 
     const hashedPassword = await bcrypt.hash(password, 10);
     const newUser = new User({
-      name,
+      namecomplete,
+      username,
       email,
       password: hashedPassword
     });
@@ -27,8 +28,8 @@ exports.register = async (req, res) => {
 
 exports.login = async (req, res) => {
   try {
-    const { email, password } = req.body;
-    const user = await User.findOne({ email });
+    const { username, password } = req.body;
+    const user = await User.findOne({ username });
     if (!user) {
       return res.status(400).json({ message: "Usuário inválido" });
     }
@@ -39,7 +40,13 @@ exports.login = async (req, res) => {
     const token = jwt.sign({ userId: user._id }, process.env.JWT_SECRET, {
       expiresIn: "24h"
     });
-    res.status(200).json({ token });
+    res.status(200).json({ 
+      token,
+      user: {
+        username: user.username,
+        email: user.email
+      }
+    });
   } catch (error) {
     console.error("Falha de login", error);
     res.status(500).json({ message: "Desculpe o incoveniente, já vamos resolver o problema" });
