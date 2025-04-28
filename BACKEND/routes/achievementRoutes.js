@@ -12,7 +12,6 @@ router.get('/', async (req, res) => {
   }
 });
 
-// Criar uma nova conquista
 router.post('/', async (req, res) => {
   const achievement = new Achievement(req.body);
   try {

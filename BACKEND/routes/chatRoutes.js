@@ -2,7 +2,6 @@ const express = require('express');
 const router = express.Router();
 const Chat = require('../models/Chat');
 
-// Listar todos os chats
 router.get('/', async (req, res) => {
   try {
     const chats = await Chat.find().populate('participants').populate('messages.sender');
@@ -12,7 +11,6 @@ router.get('/', async (req, res) => {
   }
 });
 
-// Criar um novo chat
 router.post('/', async (req, res) => {
   const chat = new Chat(req.body);
   try {

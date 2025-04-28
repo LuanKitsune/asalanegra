@@ -2,7 +2,6 @@ const express = require('express');
 const router = express.Router();
 const NPC = require('../models/NPC');
 
-// Listar todos os NPCs
 router.get('/', async (req, res) => {
   try {
     const npcs = await NPC.find();
@@ -12,7 +11,6 @@ router.get('/', async (req, res) => {
   }
 });
 
-// Criar um novo NPC
 router.post('/', async (req, res) => {
   const npc = new NPC(req.body);
   try {

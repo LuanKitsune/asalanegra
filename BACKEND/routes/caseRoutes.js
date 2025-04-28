@@ -2,7 +2,6 @@ const express = require('express');
 const router = express.Router();
 const Case = require('../models/Case');
 
-// Listar todos os casos
 router.get('/', async (req, res) => {
   try {
     const cases = await Case.find().populate('assignedTo').populate('relatedEntities');
@@ -12,7 +11,6 @@ router.get('/', async (req, res) => {
   }
 });
 
-// Criar um novo caso
 router.post('/', async (req, res) => {
   const newCase = new Case(req.body);
   try {

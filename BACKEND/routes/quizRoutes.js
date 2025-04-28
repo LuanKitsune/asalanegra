@@ -2,7 +2,7 @@ const express = require('express');
 const router = express.Router();
 const Quiz = require('../models/Quiz');
 
-// Listar todos os quizzes
+
 router.get('/', async (req, res) => {
   try {
     const quizzes = await Quiz.find();
@@ -12,7 +12,6 @@ router.get('/', async (req, res) => {
   }
 });
 
-// Criar um novo quiz
 router.post('/', async (req, res) => {
   const quiz = new Quiz(req.body);
   try {
