@@ -32,8 +32,8 @@ const userSchema = new mongoose.Schema({
   },
   patent: {
     type: mongoose.Schema.Types.ObjectId,
-    ref: "patent",
-    default: "Ovo"
+    ref: "Patent",
+    default: "6814698ea2b08f17e4d32ecf"
   },
   experience: {
     type: Number,
@@ -41,7 +41,7 @@ const userSchema = new mongoose.Schema({
   },
   unlockedContent: [{
     type: mongoose.Schema.Types.ObjectId,
-    ref: "Ents" // Referência ao modelo de criaturas
+    ref: "Ents"
   }],
   completedQuizzes: [{
     quizId: {

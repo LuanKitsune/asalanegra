@@ -15,9 +15,9 @@
             <div class="profile-card">
                 <img id="user-avatar" src="assets/default-avatar.jpg" alt="Avatar" class="avatar">
                 <h2 id="username-display">Agente</h2>
-                <p id="user-status">Offline</p>
-                <p id="user-patent">Fracassado</p>
                 <p id="user-level">0</p>
+                <p id="user-patent">Fracassado</p>
+                <p class="user-status" id="user-status">Offline</p>
             </div>
 
             <nav class="main-menu">
@@ -40,7 +40,7 @@
                 </div>
                 <div class="user-actions">
                     <button id="notifications-btn"><i class="icon"></i></button>
-                    <button id="logout-btn">Mensagens</button>
+                    <!-- <button id="logout-btn">Mensagens</button> -->
                     <button id="logout-btn">Sair</button>
                 </div>
             </header>
@@ -55,21 +55,18 @@
                     </div>
                 </section>
 
-                <!-- Chat e Amigos -->
                 <div class="right-sidebar">
-                    <!-- Lista de Amigos -->
                     <section class="friends-list">
-                        <h2>Agentes Conectados</h2>
+                        <h1 id="populacao-total"></h1>
+                        <h1 id="populacao-online"></h1>
+                        <h2>Agentes Aliados</h2>
                         <div class="friends-container" id="friends-list">
-                            <!-- Lista dinâmica de amigos -->
                         </div>
                     </section>
 
-                    <!-- Chat Rápido -->
                     <section class="quick-chat">
                         <h2>Mensagens Rápidas</h2>
                         <div class="chat-container" id="chat-messages">
-                            <!-- Mensagens do chat -->
                         </div>
                         <div class="chat-input">
                             <input type="text" placeholder="Digite uma mensagem...">

@@ -2,6 +2,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
     checkAuthAndLoadUser();
     loadNewsFeed();
+    loadUserStatistics();
     loadFriendsList();
     setupEventListeners();
 });
@@ -22,8 +23,12 @@ function checkAuthAndLoadUser() {
     }else{
        document.getElementById('user-status').textContent = `Status: Online`;
     }
-    document.getElementById('user-patent').textContent = `Patente: ${ userData.patent}`;
+
+    // document.getElementById('user-patent').textContent = `Patente: ${ userData.patent}`;
+    document.getElementById('user-patent').textContent = `Patente: ${userData.patent.name || "Sem patente"}`;
     document.getElementById('user-level').textContent = `Lv: ${userData.level}`;
+    // document.getElementById('populacao-total').textContent = ``
+    // document.getElementById('populacao-online').textContent = ``
     const avatarElement = document.getElementById('user-avatar');
 
     if (avatarElement) {
@@ -49,6 +54,32 @@ function loadNewsFeed() {
     });
 }
 
+async function loadUserStatistics() {
+    try {
+        const response = await fetch('http://localhost:5000/auth/statistics', {
+            method: 'GET',
+            headers: {
+                'Authorization': `Bearer ${localStorage.getItem('token')}`
+            }
+        });
+
+        if (!response.ok) {
+            throw new Error(`Erro HTTP: ${response.status}`);
+        }
+
+        const { data } = await response.json();
+        
+        document.getElementById('populacao-total').textContent = `Usuários totais: ${data.totalUsers}`;
+        document.getElementById('populacao-online').textContent = `Usuários online: ${data.onlineUsers}`;
+
+    } catch (error) {
+        console.error('Erro ao carregar estatísticas:', error);
+
+        document.getElementById('populacao-total').textContent = `Usuários totais: Falha, algo terrível ocorreu.`;
+        document.getElementById('populacao-online').textContent = `Usuários online: Uma falha indica um mau presságio.`;
+    }
+}
+
 function loadFriendsList() {
     const friendsList = document.getElementById('friends-list');
     const sampleFriends = [
@@ -67,9 +98,41 @@ function loadFriendsList() {
     });
 }
 
+
+async function logoutUser() {
+    const logoutBtn = document.getElementById('logout-btn');
+    try {
+        
+        logoutBtn.classList.add('loading');
+
+        // const response = await fetch('http://localhost:5000/auth/logout', {
+        //     method: 'POST',
+        //     headers: {
+        //         'Authorization': `Bearer ${localStorage.getItem('token')}`,
+        //         'Content-Type': 'application/json'
+        //     }
+        // });
+
+        if (!response.ok) {
+            throw new Error(`Erro HTTP: ${response.status}`);
+        }
+
+        localStorage.removeItem('token');
+        localStorage.removeItem('userData');
+        window.location.href = '../index.html';
+
+    } catch (error) {
+        console.error('Erro no logout:', error);
+
+        localStorage.removeItem('token');
+        localStorage.removeItem('userData');
+        window.location.href = '../index.html';
+        
+    }
+}
+
 function setupEventListeners() {
     document.getElementById('logout-btn').addEventListener('click', function() {
-        // Limpa TODOS os dados de autenticação
         localStorage.removeItem('token');
         localStorage.removeItem('userData');
         window.location.href = '../index.html';

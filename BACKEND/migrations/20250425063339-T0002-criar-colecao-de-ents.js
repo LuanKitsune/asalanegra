@@ -26,8 +26,19 @@ module.exports = {
         description: "Uma entidade que segue vítimas em locais escuros...",
         characteristics: ["Invisível em ambientes escuros", "Sussurra nomes"],
         weaknesses: ["Luz intensa", "Sal grosso"],
-        isClassified: false,
-        classificationLevel: 1
+        isClassified: false
+      },
+      {
+        name: "",
+        type: "",
+        category: "",
+        origin: "",
+        status: "",
+        dangerLevel: dangerLevelMap[""] || null,
+        description: "",
+        characteristics: ["", ""],
+        weaknesses: ["", ""],
+        isClassified:
       }
     ]);
   },
