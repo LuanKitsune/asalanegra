@@ -69,14 +69,14 @@ async function loadUserStatistics() {
 
         const { data } = await response.json();
         
-        document.getElementById('populacao-total').textContent = `Usuários totais: ${data.totalUsers}`;
-        document.getElementById('populacao-online').textContent = `Usuários online: ${data.onlineUsers}`;
+        document.getElementById('populacao-total').textContent = `Agentes Cadastrados: ${data.totalUsers} `;
+        document.getElementById('populacao-online').textContent = `Agente em Trabalho: ${data.onlineUsers} `;
 
     } catch (error) {
         console.error('Erro ao carregar estatísticas:', error);
 
-        document.getElementById('populacao-total').textContent = `Usuários totais: Falha, algo terrível ocorreu.`;
-        document.getElementById('populacao-online').textContent = `Usuários online: Uma falha indica um mau presságio.`;
+        document.getElementById('populacao-total').textContent = `Todos os Agentes: Falha, algo terrível ocorreu.`;
+        document.getElementById('populacao-online').textContent = `Agentes em Serviço: Uma falha indica um mau presságio.`;
     }
 }
 
@@ -105,13 +105,13 @@ async function logoutUser() {
         
         logoutBtn.classList.add('loading');
 
-        // const response = await fetch('http://localhost:5000/auth/logout', {
-        //     method: 'POST',
-        //     headers: {
-        //         'Authorization': `Bearer ${localStorage.getItem('token')}`,
-        //         'Content-Type': 'application/json'
-        //     }
-        // });
+        const response = await fetch('http://localhost:5000/auth/logout', {
+            method: 'POST',
+            headers: {
+                'Authorization': `Bearer ${localStorage.getItem('token')}`,
+                'Content-Type': 'application/json'
+            }
+        });
 
         if (!response.ok) {
             throw new Error(`Erro HTTP: ${response.status}`);
@@ -132,10 +132,6 @@ async function logoutUser() {
 }
 
 function setupEventListeners() {
-    document.getElementById('logout-btn').addEventListener('click', function() {
-        localStorage.removeItem('token');
-        localStorage.removeItem('userData');
-        window.location.href = '../index.html';
-    });
+    document.getElementById('logout-btn').addEventListener('click', logoutUser);
     
 }
